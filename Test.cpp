@@ -436,3 +436,40 @@ TEST_CASE("Sniper vs Sniper")
     CHECK(board.has_soldiers(2));
     CHECK(board.has_soldiers(1));
 } //27
+
+
+
+
+TEST_CASE("3 soldiers VS 3 soldiers") {
+    WarGame::Board board(8,8);
+    CHECK(!board.has_soldiers(1));
+    board[{0,1}] = new FootSoldier(1);
+    CHECK_THROWS((board[{0,1}] = new FootSoldier(1)));
+    board[{0,0}] = new FootCommander(1);
+    board[{0,2}] = new FootSoldier(1);
+    CHECK(board.has_soldiers(1));
+
+    CHECK(!board.has_soldiers(2));
+    board[{7,0}] = new FootCommander(2);
+	board[{7,1}] = new FootSoldier(2);
+    board[{7,2}] = new FootSoldier(2);
+
+    CHECK(board.has_soldiers(2));
+
+    board.move(1,{0,1},WarGame::Board::MoveDIR::Up);
+    CHECK(board.has_soldiers(2));
+    CHECK(board.has_soldiers(1));
+    CHECK_THROWS(board.move(1,{0,1},WarGame::Board::MoveDIR::Up));
+    board.move(1,{1,1},WarGame::Board::MoveDIR::Up);
+    CHECK(board.has_soldiers(2));
+    CHECK(board.has_soldiers(1));
+
+    CHECK_THROWS(board.move(2,{7,0},WarGame::Board::MoveDIR::Left));
+    board.move(2,{7,0},WarGame::Board::MoveDIR::Down);
+    CHECK(board.has_soldiers(2));
+    CHECK(board.has_soldiers(1));
+
+    board.move(1,{0,0},WarGame::Board::MoveDIR::Up);
+    CHECK(board.has_soldiers(2));
+    CHECK(board.has_soldiers(1));
+}
