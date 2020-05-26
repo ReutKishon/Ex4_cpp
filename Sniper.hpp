@@ -16,8 +16,6 @@ public:
     // ~Sniper();
 };
 
-Sniper::~Sniper()
-{
-}
+
 
 #endif
