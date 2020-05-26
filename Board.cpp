@@ -4,10 +4,7 @@ using namespace WarGame;
 
 Soldier *&Board::operator[](std::pair<int, int> location)
 {
-    Soldier s;
-    static Soldier *ref_s = &s;
-    board[location.first][location.second] = ref_s;
-    return ref_s;
+    return this->board[location.first][location.second];
 }
 
 Soldier *Board::operator[](std::pair<int, int> location) const
