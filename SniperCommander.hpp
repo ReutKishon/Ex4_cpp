@@ -5,7 +5,6 @@
 
 #include <vector>
 #include "Soldier.hpp"
-#include "Sniper.hpp"
 
 class SniperCommander : public Sniper
 {

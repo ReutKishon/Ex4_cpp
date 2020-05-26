@@ -4,7 +4,6 @@
 
 #include <vector>
 #include "Soldier.hpp"
-#include "FootSoldier.hpp"
 
 class FootCommander : public FootSoldier
 {

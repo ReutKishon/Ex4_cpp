@@ -4,7 +4,6 @@
 
 #include <vector>
 #include "Soldier.hpp"
-#include "Paramedic.hpp"
 
 class ParamedicCommander : public Paramedic
 {
