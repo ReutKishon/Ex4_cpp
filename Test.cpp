@@ -160,7 +160,7 @@ TEST_CASE("FootCommander vs FootSoldier")
     board.move(2, {1, 4}, WarGame::Board::MoveDIR::Up);
     CHECK(board.has_soldiers(2));
     CHECK(board.has_soldiers(1));
-}  //27
+} //27
 
 TEST_CASE("All soldiers:")
 {
@@ -279,3 +279,57 @@ TEST_CASE("2 soldiers vs 2 soldiers:")
     CHECK(board.has_soldiers(2));
     CHECK(board.has_soldiers(1));
 } //28
+
+TEST_CASE("2 soldiers vs 2 soldiers:")
+{
+    WarGame::Board board(8, 8);
+    CHECK(!board.has_soldiers(1));
+
+    CHECK(board.has_soldiers(1));
+    board[{6, 0}] = new FootSoldier(1);
+    board[{7, 7}] = new Sniper(1);
+
+    board[{0, 5}] = new FootSoldier(2);
+    board[{7, 3}] = new FootCommander(2);
+
+    CHECK(!board.has_soldiers(2));
+    CHECK(board.has_soldiers(2));
+
+    board.move(1, {6, 0}, WarGame::Board::MoveDIR::Right);
+    CHECK(board.has_soldiers(1));
+    CHECK(board.has_soldiers(2));
+
+    CHECK_THROWS(board.move(1, {7, 7}, WarGame::Board::MoveDIR::Right));
+    board.move(2, {0, 5}, WarGame::Board::MoveDIR::Up);
+    CHECK(board.has_soldiers(2));
+    CHECK(board.has_soldiers(1));
+
+    CHECK_THROWS(board.move(2, {3, 7}, WarGame::Board::MoveDIR::Right));
+    CHECK_THROWS(board.move(1, {7, 7}, WarGame::Board::MoveDIR::Right));
+    CHECK_THROWS(board.move(1, {7, 7}, WarGame::Board::MoveDIR::Down));
+
+    board.move(1, {7, 7}, WarGame::Board::MoveDIR::Left);
+    CHECK(board.has_soldiers(2));
+    CHECK(board.has_soldiers(1));
+    board.move(2, {7, 3}, WarGame::Board::MoveDIR::Left);
+    CHECK(board.has_soldiers(2));
+    CHECK(board.has_soldiers(1));
+    board.move(1, {6, 1}, WarGame::Board::MoveDIR::Down);
+    CHECK(board.has_soldiers(2));
+    CHECK(board.has_soldiers(1));
+
+    board.move(1, {5, 1}, WarGame::Board::MoveDIR::Down);
+    CHECK(board.has_soldiers(2));
+    CHECK(board.has_soldiers(1));
+
+    CHECK_THROWS(board.move(1, {9, 1}, WarGame::Board::MoveDIR::Up));
+    CHECK_THROWS(board.move(2, {7, 8}, WarGame::Board::MoveDIR::Right));
+    CHECK(board.has_soldiers(2));
+    CHECK(board.has_soldiers(1));
+
+    board.move(1, {7, 6}, WarGame::Board::MoveDIR::Down);
+    CHECK(board.has_soldiers(2));
+    CHECK(board.has_soldiers(1));
+    board.move(2, {4, 1}, WarGame::Board::MoveDIR::Right);
+    CHECK(board.has_soldiers(2));
+    CHECK(board.has_soldiers(1));
