@@ -1,6 +1,8 @@
 
 #ifndef SNIPERCOMMANDER_H_
 #define SNIPERCOMMANDER_H_
+#pragma once
+
 #include <vector>
 #include "Soldier.hpp"
 #include "Sniper.hpp"

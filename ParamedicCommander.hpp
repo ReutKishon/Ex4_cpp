@@ -1,5 +1,7 @@
 #ifndef PARAMEDICCOMMANDER_H_
 #define PARAMEDICCOMMANDER_H_
+#pragma once
+
 #include <vector>
 #include "Soldier.hpp"
 #include "Paramedic.hpp"

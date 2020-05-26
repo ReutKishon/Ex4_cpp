@@ -1,5 +1,7 @@
 #ifndef SOLDIER_H_
 #define SOLDIER_H_
+#pragma once
+
 #include <math.h>
 #include <vector>
 
@@ -27,7 +29,7 @@ public:
     void set_health_points(int health_points) { health_points = health_points; }
     void set_damage(int damage) { damage = damage; }
 
-    ~Soldier();
+    virtual ~Soldier() {}
 };
 void Soldier::attack(std::vector<std::vector<Soldier *>> &b, std::pair<int, int> location) { return; }
 
