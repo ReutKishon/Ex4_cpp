@@ -385,3 +385,54 @@ TEST_CASE("Sniper vs paramedic")
     CHECK(board.has_soldiers(2));
     CHECK(board.has_soldiers(1));
 } //27
+
+
+
+TEST_CASE("Sniper vs Sniper")
+{
+    WarGame::Board board(5, 5);
+    CHECK(!board.has_soldiers(1));
+    board[{1, 0}] = new Sniper(1);
+    CHECK(board.has_soldiers(1));
+
+    CHECK(!board.has_soldiers(2));
+    board[{4, 2}] = new Sniper(2);
+    CHECK(board.has_soldiers(2));
+
+    board.move(1, {1, 0}, WarGame::Board::MoveDIR::Right);
+    CHECK(board.has_soldiers(1));
+    CHECK(board.has_soldiers(2));
+
+    CHECK_THROWS(board.move(1, {5, 1}, WarGame::Board::MoveDIR::Up));
+    board.move(1, {1, 1}, WarGame::Board::MoveDIR::Up);
+    CHECK(board.has_soldiers(2));
+    CHECK(board.has_soldiers(1));
+
+    CHECK_THROWS(board.move(1, {5, 1}, WarGame::Board::MoveDIR::Up));
+    CHECK_THROWS(board.move(2, {5, 1}, WarGame::Board::MoveDIR::Up));
+    board.move(2, {4, 1}, WarGame::Board::MoveDIR::Down);
+    CHECK(board.has_soldiers(2));
+    CHECK(board.has_soldiers(1));
+    board.move(2, {3, 1}, WarGame::Board::MoveDIR::Left);
+    CHECK(board.has_soldiers(2));
+    CHECK(board.has_soldiers(1));
+    board.move(2, {2, 1}, WarGame::Board::MoveDIR::Down);
+    CHECK(board.has_soldiers(2));
+    CHECK(board.has_soldiers(1));
+
+    board.move(1, {2, 1}, WarGame::Board::MoveDIR::Up);
+    CHECK(board.has_soldiers(2));
+    CHECK(board.has_soldiers(1));
+
+    CHECK_THROWS(board.move(1, {5, 1}, WarGame::Board::MoveDIR::Up));
+    CHECK_THROWS(board.move(2, {4, 4}, WarGame::Board::MoveDIR::Right));
+    CHECK(board.has_soldiers(2));
+    CHECK(board.has_soldiers(1));
+
+    board.move(1, {3, 1}, WarGame::Board::MoveDIR::Down);
+    CHECK(board.has_soldiers(2));
+    CHECK(board.has_soldiers(1));
+    board.move(2, {1, 4}, WarGame::Board::MoveDIR::Up);
+    CHECK(board.has_soldiers(2));
+    CHECK(board.has_soldiers(1));
+} //27
