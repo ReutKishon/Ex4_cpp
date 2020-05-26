@@ -15,7 +15,6 @@ public:
 
     ~SniperCommander();
 };
-void SniperCommander::attack(std::vector<std::vector<Soldier *>> &b, std::pair<int, int> location) { return; }
 
 SniperCommander::~SniperCommander()
 {

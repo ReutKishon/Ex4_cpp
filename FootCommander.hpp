@@ -15,7 +15,6 @@ public:
     ~FootCommander();
 };
 
-void FootCommander::attack(std::vector<std::vector<Soldier *>> &b, std::pair<int, int> location) { return; }
 
 FootCommander::~FootCommander()
 {

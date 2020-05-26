@@ -15,7 +15,6 @@ public:
 
     ~Paramedic();
 };
-void Paramedic::attack(std::vector<std::vector<Soldier *>> &b, std::pair<int, int> location) { return; }
 
 Paramedic::~Paramedic()
 {

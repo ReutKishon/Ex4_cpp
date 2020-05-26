@@ -14,7 +14,6 @@ public:
 
     ~ParamedicCommander();
 };
-void ParamedicCommander::attack(std::vector<std::vector<Soldier *>> &b, std::pair<int, int> location) { return; }
 
 ParamedicCommander::~ParamedicCommander()
 {

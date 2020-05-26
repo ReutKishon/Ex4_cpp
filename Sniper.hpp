@@ -15,7 +15,6 @@ public:
      void attack(std::vector<std::vector<Soldier *>> &b, std::pair<int, int> location);
     ~Sniper();
 };
-void Sniper::attack(std::vector<std::vector<Soldier *>> &b, std::pair<int, int> location) { return; }
 
 Sniper::~Sniper()
 {
