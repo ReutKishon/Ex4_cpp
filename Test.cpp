@@ -333,3 +333,4 @@ TEST_CASE("2 soldiers vs 2 soldiers:")
     board.move(2, {4, 1}, WarGame::Board::MoveDIR::Right);
     CHECK(board.has_soldiers(2));
     CHECK(board.has_soldiers(1));
+}
