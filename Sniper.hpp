@@ -13,7 +13,7 @@ public:
     Sniper(uint player_id, uint health_points = 100, uint damage = 50) : Soldier{player_id, health_points, damage} {}
     Sniper();
      void attack(std::vector<std::vector<Soldier *>> &b, std::pair<int, int> location);
-    ~Sniper();
+    // ~Sniper();
 };
 
 Sniper::~Sniper()

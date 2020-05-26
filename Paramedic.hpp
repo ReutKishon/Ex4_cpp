@@ -13,11 +13,8 @@ public:
     Paramedic();
      void attack(std::vector<std::vector<Soldier *>> &b, std::pair<int, int> location);
 
-    ~Paramedic();
+    // ~Paramedic();
 };
 
-Paramedic::~Paramedic()
-{
-}
 
 #endif
