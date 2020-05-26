@@ -21,7 +21,7 @@ public:
     {
     }
     Soldier();
-    virtual void attack(std::vector<std::vector<Soldier *>> &b, std::pair<int, int> location);
+    virtual void attack(std::vector<std::vector<Soldier *>> &b, std::pair<int, int> location) = 0;
 
     uint get_player_id() { return player_id; }
     uint get_health_points() { return health_points; }
@@ -31,6 +31,5 @@ public:
 
     virtual ~Soldier() {}
 };
-void Soldier::attack(std::vector<std::vector<Soldier *>> &b, std::pair<int, int> location) { return; }
 
 #endif
