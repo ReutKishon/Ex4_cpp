@@ -1,17 +1,9 @@
-//
-// Created by reut on 5/20/20.
-//
-
-#ifndef UNTITLED_BOARD_H
-#define UNTITLED_BOARD_H
-
-
 /**
  * Header file for the board of the war game.
- *
+ * 
  * You can copy this file to a new file called Board.hpp, and extend it as you like.
- *
- * @author Oz Levi
+ * 
+ * @author Oz Levi 
  * @author Erel Segal-Halevi
  * @since  2020-05
  */
@@ -21,23 +13,30 @@
 #include <stdexcept>
 #include "Soldier.hpp"
 
+namespace WarGame
+{
 
-namespace WarGame {
-
-    class Board {
+    class Board
+    {
     private:
-        std::vector<std::vector<Soldier*>> board;
-    public:
-        enum MoveDIR { Up, Down, Right, Left };
+        std::vector<std::vector<Soldier *>> board;
 
-        Board(uint numRows, uint numCols) :
-                board(numRows, std::vector<Soldier*>(numCols, nullptr)) {}
+    public:
+        enum MoveDIR
+        {
+            Up,
+            Down,
+            Right,
+            Left
+        };
+
+        Board(uint numRows, uint numCols) : board(numRows, std::vector<Soldier *>(numCols, nullptr)) {}
 
         // operator for putting soldiers on the game-board during initialization.
-        Soldier*& operator[](std::pair<int,int> location);
+        Soldier *&operator[](std::pair<int, int> location);
 
         // operator for reading which soldiers are on the game-board.
-        Soldier* operator[](std::pair<int,int> location) const;
+        Soldier *operator[](std::pair<int, int> location) const;
 
         // The function "move" tries to move the soldier of player "player"
         //     from the "source" location to the "target" location,
@@ -50,14 +49,15 @@ namespace WarGame {
         // IMPLEMENTATION HINT: Do not write "if" conditions that depend on the type of soldier!
         // Your code should be generic. All handling of different types of soldiers
         //      must be handled by polymorphism.
-        void move(uint player_number, std::pair<int,int> source, MoveDIR direction);
+        void move(uint player_number, std::pair<int, int> source, MoveDIR direction);
 
         // returns true iff the board contains one or more soldiers of the given player.
         bool has_soldiers(uint player_number) const;
+
+        ~Board()
+        {
+            board.clear();
+        }
     };
 
-}
-
-
-
-#endif //UNTITLED_BOARD_H
+} // namespace WarGame
