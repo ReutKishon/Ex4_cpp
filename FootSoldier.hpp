@@ -8,7 +8,7 @@ class FootSoldier : public Soldier
 {
 
 public:
-    FootSoldier(int player_id, uint health = 100, uint damage = 10) : Soldier{player_id, health, damage} {}
+    FootSoldier(uint player_id, uint health = 100, uint damage = 10) : Soldier{player_id, health, damage} {}
     FootSoldier();
     virtual void attack(std::vector<std::vector<Soldier *>> &b, std::pair<int, int> location);
 
