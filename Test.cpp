@@ -170,7 +170,7 @@ TEST_CASE("All soldiers:")
     board[{0, 3}] = new FootCommander(1);
     CHECK(board.has_soldiers(1));
     board[{1, 6}] = new Paramedic(1);
-    board[{3, 2}] = new SniperCommander(1);
+    // board[{3, 2}] = new SniperCommander(1);
     board[{4, 5}] = new ParamedicCommander(1);
     board[{6, 0}] = new FootSoldier(1);
     board[{7, 7}] = new Sniper(1);
