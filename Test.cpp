@@ -174,7 +174,8 @@ TEST_CASE("All soldiers:")
     board[{4, 5}] = new ParamedicCommander(1);
     board[{6, 0}] = new FootSoldier(1);
     board[{7, 7}] = new Sniper(1);
-
+    CHECK(!board.has_soldiers(1));
+    CHECK(board.has_soldiers(2));
     board[{0, 5}] = new FootSoldier(2);
     board[{0, 7}] = new Paramedic(2);
     board[{2, 0}] = new ParamedicCommander(2);
@@ -286,11 +287,11 @@ TEST_CASE("2 soldiers vs 2 soldiers:")
     CHECK(!board.has_soldiers(1));
 
     CHECK(board.has_soldiers(1));
-    board[{6, 0}] = new FootSoldier(1);
+    board[{6, 0}] = new Sniper(1);
     board[{7, 7}] = new Sniper(1);
 
     board[{0, 5}] = new FootSoldier(2);
-    board[{7, 3}] = new FootCommander(2);
+    board[{7, 3}] = new Paramedic(2);
 
     CHECK(!board.has_soldiers(2));
     CHECK(board.has_soldiers(2));
