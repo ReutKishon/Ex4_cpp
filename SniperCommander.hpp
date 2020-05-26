@@ -1,18 +1,20 @@
 
 #ifndef SNIPERCOMMANDER_H_
 #define SNIPERCOMMANDER_H_
+#include <vector>
 #include "Soldier.hpp"
 #include "Sniper.hpp"
 
-class SniperCommander : public Soldier, Sniper
+class SniperCommander : public Sniper
 {
 
 public:
-    SniperCommander(uint player_id) : Soldier{player_id, 120, 100} {}
-    void attack();
+    SniperCommander(uint player_id, uint health = 120, uint damage = 100) : Sniper{player_id, health, damage} {}
+    void attack(std::vector<std::vector<Soldier *>> &b, std::pair<int, int> location);
 
     ~SniperCommander();
 };
+void SniperCommander::attack(std::vector<std::vector<Soldier *>> &b, std::pair<int, int> location) { return; }
 
 SniperCommander::~SniperCommander()
 {

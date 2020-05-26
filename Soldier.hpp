@@ -1,6 +1,8 @@
 #ifndef SOLDIER_H_
 #define SOLDIER_H_
 #include <math.h>
+#include <vector>
+
 class Soldier
 {
 protected:
@@ -17,7 +19,7 @@ public:
     {
     }
     Soldier();
-    virtual void attack();
+    virtual void attack(std::vector<std::vector<Soldier *>> &b, std::pair<int, int> location);
 
     uint get_player_id() { return player_id; }
     uint get_health_points() { return health_points; }
@@ -27,7 +29,6 @@ public:
 
     ~Soldier();
 };
-
-void Soldier::attack() {}
+void Soldier::attack(std::vector<std::vector<Soldier *>> &b, std::pair<int, int> location) { return; }
 
 #endif

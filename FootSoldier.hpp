@@ -1,18 +1,20 @@
 
 #ifndef FOOTSOLDIER_H_
 #define FOOTSOLDIER_H_
+#include <vector>
 #include "Soldier.hpp"
 
 class FootSoldier : public Soldier
 {
 
 public:
-    FootSoldier(int player_id) : Soldier{player_id, 100, 10} {}
+    FootSoldier(int player_id, uint health = 100, uint damage = 10) : Soldier{player_id, health, damage} {}
     FootSoldier();
-    virtual void attack();
+    virtual void attack(std::vector<std::vector<Soldier *>> &b, std::pair<int, int> location);
 
     ~FootSoldier();
 };
+void FootSoldier::attack(std::vector<std::vector<Soldier *>> &b, std::pair<int, int> location) { return; }
 
 FootSoldier::~FootSoldier()
 {
