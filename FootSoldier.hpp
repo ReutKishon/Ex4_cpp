@@ -14,11 +14,9 @@ public:
     FootSoldier();
      void attack(std::vector<std::vector<Soldier *>> &b, std::pair<int, int> location);
 
-    ~FootSoldier();
+    // ~FootSoldier();
 };
 
-FootSoldier::~FootSoldier()
-{
-}
+
 
 #endif
