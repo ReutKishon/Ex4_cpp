@@ -55,7 +55,7 @@ void Board::move(uint player_number, std::pair<int, int> source, MoveDIR directi
     }
     (*this)[target] = s;
     (*this)[source] = nullptr;
-    s->attack();
+    // s->attack();
 }
 
 bool Board::has_soldiers(uint player_number) const
