@@ -126,7 +126,7 @@ TEST_CASE("Test 3: 3 soldiers vs 3 soldiers")
     board.move(1, {0, 0}, WarGame::Board::Right); //{0,1}
     CHECK(board.has_soldiers(1));
     CHECK(board.has_soldiers(2));
-    board.move(1, {1, 0}, WarGame::Board::Down); //{0,0}
+    CHECK_THROWS(board.move(1, {1, 0}, WarGame::Board::Down)); //{0,0}
     CHECK_THROWS(board.move(1, {0, 0}, WarGame::Board::Right));
     board.move(1, {2, 2}, WarGame::Board::Left); //{2,1}
     CHECK(board.has_soldiers(1));
