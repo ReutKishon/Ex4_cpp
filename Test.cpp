@@ -110,11 +110,11 @@ TEST_CASE("Test 3: 3 soldiers vs 3 soldiers")
     WarGame::Board board(6, 6);
     //player 1 soldiers
     board[{0, 0}] = new FootSoldier(1);
-    board[{1, 0}] = new FootCommander(1);
+    board[{1, 0}] = new Sniper(1);
     board[{2, 2}] = new Sniper(1);
     //player 2 soldiers
     board[{1, 5}] = new FootSoldier(2);
-    board[{5, 1}] = new FootCommander(2);
+    board[{5, 1}] = new Paramedic(2);
     board[{3, 3}] = new Sniper(2);
 
     CHECK_THROWS(board.move(1, {0, 0}, WarGame::Board::Left));
