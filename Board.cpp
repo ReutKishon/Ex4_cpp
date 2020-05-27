@@ -46,10 +46,10 @@ void Board::move(uint player_number, std::pair<int, int> source, MoveDIR directi
         target.second = source.second - 1;
         break;
     }
-    if ((*this)[target] != nullptr)
-    {
-        throw("There is already another soldier!");
-    }
+    // if ((*this)[target] != nullptr)
+    // {
+    //     throw("There is already another soldier!");
+    // }
     (*this)[target] = s;
     (*this)[source] = nullptr;
     // s->attack();
